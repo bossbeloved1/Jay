@@ -1,148 +1,109 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaykinggraphics | Portfolio</title>
+    <title>My Graphic Design Catalogue</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a;
-            color: #fff;
+            background-color: #f5f5f5;
         }
+
+        /* Header styles */
         header {
-            background-color: #e60000;
-            color: #fff;
-            padding: 3rem 1rem;
+            background-color: #d32f2f; /* Red background */
+            color: white;
+            padding: 20px;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 3.5rem;
-            letter-spacing: 2px;
-        }
-        header p {
-            margin-top: 0.8rem;
-            font-size: 1.5rem;
-        }
-        .section {
-            padding: 5rem 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        h2 {
-            color: #ff1a1a;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        .about p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #ccc;
-        }
-        .portfolio {
+
+        /* Catalogue grid */
+        .catalogue {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
         }
-        .portfolio a {
-            background-color: #262626;
-            border-radius: 12px;
+
+        /* Each item box */
+        .item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-            text-decoration: none;
-            transition: transform 0.4s, box-shadow 0.4s;
+            transition: transform 0.3s ease;
         }
-        .portfolio a:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+
+        .item:hover {
+            transform: translateY(-5px);
         }
-        .portfolio img {
+
+        .item img {
             width: 100%;
             height: auto;
-            display: block;
         }
-        .portfolio p {
-            color: #fff;
-            padding: 1rem;
-            font-size: 1.1rem;
+
+        .item-description {
+            padding: 15px;
             text-align: center;
         }
-        .contact {
-            text-align: center;
-            margin-top: 5rem;
-        }
-        .contact p {
-            font-size: 1.2rem;
-            color: #ccc;
-            margin-bottom: 1rem;
-        }
-        .contact a {
-            color: #ff1a1a;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .contact a:hover {
-            text-decoration: underline;
-        }
+
         footer {
-            background-color: #e60000;
-            color: #fff;
             text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 5rem;
+            padding: 10px;
+            background-color: #333;
+            color: white;
         }
+
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Jaykinggraphics</h1>
-    <p>A Professional Graphic Designer</p>
-</header>
+    <!-- Header Section -->
+    <header>
+        <h1>My Graphic Design Catalogue</h1>
+        <p>Explore My Creative Works</p>
+    </header>
 
-<section class="section about">
-    <h2>About Me</h2>
-    <p>
-        Welcome to Jaykinggraphics! I'm a professional graphic designer specializing in branding, visual identity, and stunning flyer designs. I create bold and impactful visuals that make brands stand out.
-    </p>
-</section>
+    <!-- Catalogue Section -->
+    <section class="catalogue">
+        <!-- Item 1 -->
+        <div class="item">
+            <img src="https://via.placeholder.com/400x300.png?text=Design+1" alt="Design 1">
+            <div class="item-description">
+                <h3>Logo Design</h3>
+                <p>Minimalist logo concepts for modern brands.</p>
+            </div>
+        </div>
 
-<section class="section portfolio">
-    <h2>My Works</h2>
-    <a href="https://drive.google.com/your-design-link1" target="_blank">
-        <img src="your-design1.jpg" alt="Design 1">
-        <p>Brand Identity Design</p>
-    </a>
-    <a href="https://drive.google.com/your-design-link2" target="_blank">
-        <img src="your-design2.jpg" alt="Design 2">
-        <p>Flyer for Event Promotion</p>
-    </a>
-    <a href="https://drive.google.com/your-design-link3" target="_blank">
-        <img src="your-design3.jpg" alt="Design 3">
-        <p>Business Logo Design</p>
-    </a>
-</section>
+        <!-- Item 2 -->
+        <div class="item">
+            <img src="https://via.placeholder.com/400x300.png?text=Design+2" alt="Design 2">
+            <div class="item-description">
+                <h3>Poster Design</h3>
+                <p>Vibrant posters for events and promotions.</p>
+            </div>
+        </div>
 
-<section class="section contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:joshuaiyanu249@gmail.com">joshuaiyanu249@gmail.com</a></p>
-    <p>Phone: <a href="tel:+2348100685644">08100685644</a> / <a href="tel:+2347077578200">07077578200</a></p>
-    <p>WhatsApp: <a href="https://wa.me/c/2348100685644">Chat on WhatsApp</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/joshua-iyanu-1aa9a5270" target="_blank">View my LinkedIn</a></p>
-</section>
+        <!-- Item 3 -->
+        <div class="item">
+            <img src="https://via.placeholder.com/400x300.png?text=Design+3" alt="Design 3">
+            <div class="item-description">
+                <h3>Business Cards</h3>
+                <p>Professional business card designs for networking.</p>
+            </div>
+        </div>
 
-<footer>
-    <p>&copy; 2025 Jaykinggraphics. All Rights Reserved.</p>
-</footer>
+        <!-- Add more items as needed -->
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        &copy; 2025 My Graphic Design Portfolio. All rights reserved.
+    </footer>
 
 </body>
 </html>
