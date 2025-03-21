@@ -250,20 +250,53 @@
 </head>
 <body>
 
-  <!-- Navbar Section -->
-  <nav class="navbar">
-    <div class="images">
-      <a href="#">
-        <img src="Jaykingportfolio/images/logo.png" alt="Jaykinggraphics Logo">
-      </a>
-    </div>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#faqs">FAQs</a></li>
-      <li><a href="#contact">Contact Us</a></li>
-    </ul>
-  </nav>
+<!-- Navbar Section -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="#">
+      <img src="Jaykingportfolio/images/logo.png" alt="Jaykinggraphics Logo">
+    </a>
+  </div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#faqs">FAQs</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+</nav>
+
+<style>
+  /* Navbar Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e60000;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo img {
+    height: 10px; /* You can change this size if you want */
+    width: 20;
+  }
+
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+</style>
+
 
   <!-- Header Section -->
   <header id="home">
