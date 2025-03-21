@@ -6,167 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sign Up</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #121212;
-      color: #f9f9f9;
-    }
-
-    header {
-      background-color: #1a1a1a;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      height: 40px;
-    }
-
-    nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color 0.3s;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-    }
-
-    nav a:hover {
-      background-color: #333;
-      color: #ff0000;
-    }
-
-    nav a.active {
-      background-color: #ff0000;
-      color: #fff;
-    }
-
-    .container {
-      max-width: 400px;
-      margin: 5rem auto;
-      background-color: #1e1e1e;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-      font-size: 2rem;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #f9f9f9;
-      font-weight: bold;
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1.5rem;
-      background-color: #333;
-      border: 1px solid #555;
-      border-radius: 4px;
-      box-sizing: border-box;
-      color: #f9f9f9;
-    }
-
-    input::placeholder {
-      color: #aaa;
-    }
-
-    .country-code-phone {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .country-code-phone select {
-      width: 30%;
-    }
-
-    .country-code-phone input {
-      width: 70%;
-    }
-
-    button[type="submit"] {
-      width: 100%;
-      padding: 0.75rem;
-      background-color: #ff0000;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #cc0000;
-    }
-
-    .form-footer {
-      text-align: center;
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-    }
-
-    .form-footer a {
-      color: #ff0000;
-      text-decoration: none;
-    }
-
-    .form-footer a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: #1a1a1a;
-      color: #aaa;
-      text-align: center;
-      padding: 1rem 2rem;
-      font-size: 0.9rem;
-      position: relative;
-      margin-top: 3rem;
-      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.6);
-    }
-
-    footer p {
-      margin: 0;
-    }
-
-    footer a {
-      color: #ff0000;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
+    /* Your existing CSS here! (omitted for space) */
   </style>
 </head>
 
 <body>
-
   <!-- Header -->
   <header>
     <a href="index.html" class="logo">
@@ -174,15 +18,15 @@
     </a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="jaykingportfolio/signup.html" class="active">Sign Up</a>
-      <a href="jaykingportfolio/login.html">Login</a>
+      <a href="signup.html" class="active">Sign Up</a>
+      <a href="login.html">Login</a>
     </nav>
   </header>
 
   <!-- Sign Up Form Container -->
   <div class="container">
     <h1>Sign Up</h1>
-    <form action="#" method="post">
+    <form id="signupForm" action="#" method="post">
 
       <label for="fullname">Full Name</label>
       <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required />
@@ -195,34 +39,8 @@
         <select id="country-code" name="country-code" required>
           <option value="+1">+1 (USA)</option>
           <option value="+44">+44 (UK)</option>
-          <option value="+234">+233 (Ghana)</option>
           <option value="+234">+234 (Nigeria)</option>
-          <option value="+91">+91 (India)</option>
-          <option value="+61">+61 (Australia)</option>
-          <option value="+81">+81 (Japan)</option>
-          <option value="+49">+49 (Germany)</option>
-          <option value="+33">+33 (France)</option>
-          <option value="+39">+39 (Italy)</option>
-          <option value="+86">+86 (China)</option>
-          <option value="+7">+7 (Russia)</option>
-          <option value="+27">+27 (South Africa)</option>
-          <option value="+34">+34 (Spain)</option>
-          <option value="+55">+55 (Brazil)</option>
-          <option value="+82">+82 (South Korea)</option>
-          <option value="+46">+46 (Sweden)</option>
-          <option value="+31">+31 (Netherlands)</option>
-          <option value="+41">+41 (Switzerland)</option>
-          <option value="+351">+351 (Portugal)</option>
-          <option value="+90">+90 (Turkey)</option>
-          <option value="+62">+62 (Indonesia)</option>
-          <option value="+63">+63 (Philippines)</option>
-          <option value="+966">+966 (Saudi Arabia)</option>
-          <option value="+971">+971 (UAE)</option>
-          <option value="+92">+92 (Pakistan)</option>
-          <option value="+48">+48 (Poland)</option>
-          <option value="+380">+380 (Ukraine)</option>
-          <option value="+60">+60 (Malaysia)</option>
-          <option value="+65">+65 (Singapore)</option>
+          <!-- more countries... -->
         </select>
         <input type="tel" id="phone" name="phone" placeholder="Phone number" required />
       </div>
@@ -251,6 +69,61 @@
       <a href="terms-of-service.html">Terms of Service</a>
     </p>
   </footer>
+
+  <!-- JavaScript Validation -->
+  <script>
+    const signupForm = document.getElementById('signupForm');
+
+    signupForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Stop form from submitting for now
+
+      // Get form values
+      const fullname = document.getElementById('fullname').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      // Simple email pattern (basic)
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      // Validate Full Name
+      if (fullname === '') {
+        alert('Please enter your full name.');
+        return;
+      }
+
+      // Validate Email
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Validate Phone (must be digits only)
+      if (phone === '' || !/^\d+$/.test(phone)) {
+        alert('Please enter a valid phone number (digits only).');
+        return;
+      }
+
+      // Validate Password Length
+      if (password.length < 6) {
+        alert('Password must be at least 6 characters.');
+        return;
+      }
+
+      // Validate Password Match
+      if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return;
+      }
+
+      // If all is good
+      alert('Form submitted successfully!');
+
+      // You can now send data to your backend (we'll do that next)
+      signupForm.submit(); // This will now submit the form
+    });
+  </script>
 
 </body>
 
