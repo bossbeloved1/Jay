@@ -279,14 +279,18 @@
   }
 
   .logo img {
-    height: 20px; /* You can change this size if you want */
-    width: 40px;
+    height: 60px; /* Regulate the height of your logo */
+    width: auto;  /* Automatically adjust the width to keep the aspect ratio */
+    max-width: 150px; /* Optional: limit the maximum width */
+    object-fit: contain; /* Make sure it doesn't stretch */
   }
 
   .navbar ul {
     list-style: none;
     display: flex;
     gap: 1.5rem;
+    margin: 0;
+    padding: 0;
   }
 
   .navbar ul li a {
@@ -294,9 +298,13 @@
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .navbar ul li a:hover {
+    color: #ffcccc;
   }
 </style>
-
 
   <!-- Header Section -->
   <header id="home">
