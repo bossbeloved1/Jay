@@ -250,7 +250,7 @@
 </head>
 <body>
 
-  <!-- Navbar Section -->
+<!-- Navbar Section -->
 <nav class="navbar">
   <div class="logo">
     <a href="#">
@@ -264,6 +264,38 @@
     <li><a href="#contact">Contact Us</a></li>
   </ul>
 </nav>
+
+<style>
+  /* Navbar Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e60000;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo img {
+    height: 60px; /* You can change this size if you want */
+    width: auto;
+  }
+
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+</style>
 
 
   <!-- Header Section -->
