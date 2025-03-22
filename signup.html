@@ -114,14 +114,25 @@
     .phone-container {
       display: flex;
       gap: 0.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .phone-container select {
-      width: 30%;
+      width: 35%;
+      padding: 0.75rem;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 4px;
+      color: #f9f9f9;
     }
 
     .phone-container input[type="tel"] {
-      width: 70%;
+      width: 65%;
+      padding: 0.75rem;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 4px;
+      color: #f9f9f9;
     }
 
     input::placeholder {
@@ -129,3 +140,188 @@
     }
 
     button[type="submit"] {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #ffffff;
+      color: #121212;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #ccc;
+      transform: scale(1.05);
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    #errorMsg {
+      color: #ffffff;
+      text-align: center;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        margin: 3rem 1rem;
+      }
+
+      .phone-container {
+        flex-direction: column;
+      }
+
+      .phone-container select,
+      .phone-container input[type="tel"] {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="Jaykingportfolio/images/logo.png" alt="Jayking" style="height: 30px;">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="signup.html" class="active">Sign Up</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <!-- Sign Up Form Container -->
+  <div class="container">
+    <h1>Create an Account</h1>
+    <form id="signupForm" method="post" action="#">
+
+      <label for="surname">Surname</label>
+      <input type="text" id="surname" name="surname" placeholder="Enter your surname" required />
+
+      <label for="othernames">Other Names</label>
+      <input type="text" id="othernames" name="othernames" placeholder="Enter your other names" required />
+
+      <label for="country">Country</label>
+      <select id="country" name="country" required>
+        <option value="">Select your country</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Ghana">Ghana</option>
+        <option value="Kenya">Kenya</option>
+        <option value="South Africa">South Africa</option>
+        <option value="United States">United States</option>
+      </select>
+
+      <label for="phone">Phone Number</label>
+      <div class="phone-container">
+        <select id="countryCode" name="countryCode" required>
+          <option value="+234">+234</option>
+          <option value="+233">+233</option>
+          <option value="+254">+254</option>
+          <option value="+27">+27</option>
+          <option value="+1">+1</option>
+        </select>
+        <input type="tel" id="phone" name="phone" placeholder="8012345678" required />
+      </div>
+
+      <label for="referral">Referral Code (Optional)</label>
+      <input type="text" id="referral" name="referral" placeholder="Enter referral code" />
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required />
+
+      <p id="errorMsg"></p>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="form-footer">
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Jaykinggraphics. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+  </footer>
+
+  <!-- JS Validation -->
+  <script>
+    const form = document.getElementById('signupForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password !== confirmPassword) {
+        errorMsg.textContent = "Passwords do not match!";
+        return;
+      }
+
+      if (password.length < 6) {
+        errorMsg.textContent = "Password must be at least 6 characters!";
+        return;
+      }
+
+      errorMsg.style.color = "lightgreen";
+      errorMsg.textContent = "Sign up successful!";
+
+      console.log("Form submitted successfully");
+      // form.submit(); // enable when backend is ready
+    });
+  </script>
+
+</body>
+
+</html>
