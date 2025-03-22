@@ -1,197 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King's Sign Up Page</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #f9f9f9;
+    }
 
-        header, footer {
-            background-color: #1f1f1f;
-            color: #ff3c3c;
-            text-align: center;
-            padding: 15px 0;
-        }
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 80vh;
-            padding: 20px;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      color: #ff0000;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
 
-        .signup-form {
-            background-color: #1f1f1f;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 60, 60, 0.5);
-            width: 100%;
-            max-width: 400px;
-        }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
 
-        .signup-form h2 {
-            text-align: center;
-            color: #ff3c3c;
-            margin-bottom: 20px;
-        }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
 
-        .signup-form label {
-            display: block;
-            margin-bottom: 5px;
-            color: #ffffff;
-        }
+    nav a:hover {
+      background-color: #333;
+      color: #ff0000;
+    }
 
-        .signup-form input, 
-        .signup-form select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ff3c3c;
-            border-radius: 5px;
-            background-color: #2c2c2c;
-            color: #ffffff;
-        }
+    nav a.active {
+      background-color: #ff0000;
+      color: #fff;
+    }
 
-        .signup-form button {
-            width: 100%;
-            padding: 12px;
-            background-color: #ff3c3c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    .container {
+      max-width: 500px;
+      margin: 5rem auto;
+      background-color: #1e1e1e;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease;
+    }
 
-        .signup-form button:hover {
-            background-color: #e63232;
-        }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
 
-        #errorMsg {
-            color: #ff3c3c;
-            text-align: center;
-            margin-top: 10px;
-        }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        footer p {
-            margin: 0;
-            font-size: 14px;
-        }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      font-size: 2rem;
+    }
 
-        @media (max-width: 500px) {
-            .signup-form {
-                padding: 20px;
-            }
-        }
-    </style>
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #f9f9f9;
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.5rem;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 4px;
+      box-sizing: border-box;
+      color: #f9f9f9;
+      transition: all 0.3s ease;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #ff0000;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #ff0000;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #cc0000;
+      transform: scale(1.05);
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .form-footer a {
+      color: #ff0000;
+      text-decoration: none;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #ff0000;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Error message styling */
+    #errorMsg {
+      color: #ff0000;
+      text-align: center;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        margin: 3rem 1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Welcome to King's Platform</h1>
-    </header>
-
-    <div class="container">
-        <form class="signup-form" id="signupForm">
-            <h2>Create an Account</h2>
-
-            <label for="surname">Surname</label>
-            <input type="text" id="surname" placeholder="Enter your surname" required>
-
-            <label for="othernames">Other Names</label>
-            <input type="text" id="othernames" placeholder="Enter your other names" required>
-
-            <label for="country">Country</label>
-            <select id="country" required>
-                <option value="">Select your country</option>
-                <option value="Nigeria">Nigeria</option>
-                <option value="Ghana">Ghana</option>
-                <option value="Kenya">Kenya</option>
-                <option value="South Africa">South Africa</option>
-                <option value="United States">United States</option>
-                <!-- Add more countries as needed -->
-            </select>
-
-            <label for="phone">Phone Number (with country code)</label>
-            <input type="tel" id="phone" placeholder="+2348012345678" required>
-
-            <label for="referral">Referral Code (Optional)</label>
-            <input type="text" id="referral" placeholder="Enter referral code">
-
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
-
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter password" required>
-
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" placeholder="Confirm password" required>
-
-            <button type="submit">Sign Up</button>
-
-            <p id="errorMsg"></p>
-        </form>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="Jaykingportfolio/images/logo.png" alt="Jayking" style="height: 30px;">
     </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="signup.html" class="active">Sign Up</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 King's Platform. All rights reserved.</p>
-    </footer>
+  <!-- Sign Up Form Container -->
+  <div class="container">
+    <h1>Create an Account</h1>
+    <form id="signupForm" method="post" action="#">
 
-    <script>
-        const form = document.getElementById('signupForm');
-        const errorMsg = document.getElementById('errorMsg');
+      <label for="surname">Surname</label>
+      <input type="text" id="surname" name="surname" placeholder="Enter your surname" required />
 
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
+      <label for="othernames">Other Names</label>
+      <input type="text" id="othernames" name="othernames" placeholder="Enter your other names" required />
 
-            const surname = document.getElementById('surname').value.trim();
-            const othernames = document.getElementById('othernames').value.trim();
-            const country = document.getElementById('country').value;
-            const phone = document.getElementById('phone').value.trim();
-            const referral = document.getElementById('referral').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
+      <label for="country">Country</label>
+      <select id="country" name="country" required>
+        <option value="">Select your country</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Ghana">Ghana</option>
+        <option value="Kenya">Kenya</option>
+        <option value="South Africa">South Africa</option>
+        <option value="United States">United States</option>
+        <!-- Add more as needed -->
+      </select>
 
-            // Basic validation
-            if (!surname || !othernames || !country || !phone || !email || !password || !confirmPassword) {
-                errorMsg.textContent = "Please fill in all required fields.";
-                return;
-            }
+      <label for="phone">Phone Number (with country code)</label>
+      <input type="tel" id="phone" name="phone" placeholder="+2348012345678" required />
 
-            if (password !== confirmPassword) {
-                errorMsg.textContent = "Passwords do not match!";
-                return;
-            }
+      <label for="referral">Referral Code (Optional)</label>
+      <input type="text" id="referral" name="referral" placeholder="Enter referral code" />
 
-            if (password.length < 6) {
-                errorMsg.textContent = "Password must be at least 6 characters!";
-                return;
-            }
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
-            // If everything is fine
-            errorMsg.style.color = "#4CAF50";
-            errorMsg.textContent = "Sign up successful!";
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required />
 
-            // You can replace this with backend logic later
-            console.log({
-                surname,
-                othernames,
-                country,
-                phone,
-                referral,
-                email,
-                password
-            });
-        });
-    </script>
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required />
+
+      <p id="errorMsg"></p>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="form-footer">
+      <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Jaykinggraphics. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+  </footer>
+
+  <!-- JavaScript Validation -->
+  <script>
+    const form = document.getElementById('signupForm');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (password !== confirmPassword) {
+        errorMsg.textContent = "Passwords do not match!";
+        return;
+      }
+
+      if (password.length < 6) {
+        errorMsg.textContent = "Password must be at least 6 characters!";
+        return;
+      }
+
+      errorMsg.style.color = "green";
+      errorMsg.textContent = "Sign up successful!";
+
+      // Here you can handle backend or redirection logic
+      console.log("Form submitted successfully");
+      // form.submit(); // Uncomment if you want to submit
+    });
+  </script>
 
 </body>
+
 </html>
