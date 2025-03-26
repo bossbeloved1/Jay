@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up</title>
+  <title>Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -24,8 +24,6 @@
     }
 
     .logo {
-      display: flex;
-      align-items: center;
       color: #ffffff;
       font-size: 1.8rem;
       font-weight: bold;
@@ -40,23 +38,21 @@
       color: #fff;
       text-decoration: none;
       font-size: 1rem;
-      transition: color 0.3s;
       padding: 0.5rem 1rem;
       border-radius: 4px;
+      transition: color 0.3s, background-color 0.3s;
     }
 
     nav a:hover {
       background-color: #333;
-      color: #ffffff;
     }
 
     nav a.active {
       background-color: #C70004;
-      color: #ffffff;
     }
 
     .container {
-      max-width: 500px;
+      max-width: 400px;
       margin: 5rem auto;
       background-color: #1e1e1e;
       padding: 2rem;
@@ -66,20 +62,12 @@
     }
 
     @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 1.5rem;
       color: #ffffff;
       font-size: 2rem;
     }
@@ -87,59 +75,45 @@
     label {
       display: block;
       margin-bottom: 0.5rem;
-      color: #f9f9f9;
       font-weight: bold;
     }
 
-    input,
-    select {
+    .input-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    input {
       width: 100%;
       padding: 0.75rem;
-      margin-bottom: 1.5rem;
       background-color: #333;
       border: 1px solid #555;
       border-radius: 4px;
-      box-sizing: border-box;
       color: #f9f9f9;
-      transition: all 0.3s ease;
+      transition: border 0.3s;
     }
 
-    input:focus,
-    select:focus {
+    input:focus {
       border-color: #ffffff;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       outline: none;
     }
 
-    .phone-container {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .phone-container select {
-      width: 35%;
-      padding: 0.75rem;
-      background-color: #333;
-      border: 1px solid #555;
-      border-radius: 4px;
-      color: #f9f9f9;
-    }
-
-    .phone-container input[type="tel"] {
-      width: 65%;
-      padding: 0.75rem;
-      background-color: #333;
-      border: 1px solid #555;
-      border-radius: 4px;
-      color: #f9f9f9;
-    }
-
-    input::placeholder {
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
       color: #aaa;
     }
 
-    button[type="submit"] {
+    .error {
+      color: red;
+      font-size: 0.85rem;
+      margin-top: 5px;
+    }
+
+    button {
       width: 100%;
       padding: 0.75rem;
       background-color: #ffffff;
@@ -151,7 +125,7 @@
       transition: background-color 0.3s, transform 0.2s;
     }
 
-    button[type="submit"]:hover {
+    button:hover {
       background-color: #ccc;
       transform: scale(1.05);
     }
@@ -176,13 +150,9 @@
       color: #aaa;
       text-align: center;
       padding: 1rem 2rem;
-      font-size: 0.9rem;
       margin-top: 3rem;
+      font-size: 0.9rem;
       box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.6);
-    }
-
-    footer p {
-      margin: 0;
     }
 
     footer a {
@@ -192,29 +162,6 @@
 
     footer a:hover {
       text-decoration: underline;
-    }
-
-    #errorMsg {
-      color: #ffffff;
-      text-align: center;
-      margin-top: -1rem;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 500px) {
-      .container {
-        margin: 3rem 1rem;
-      }
-
-      .phone-container {
-        flex-direction: column;
-      }
-
-      .phone-container select,
-      .phone-container input[type="tel"] {
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -228,63 +175,32 @@
     </div>
     <nav>
       <a href="index.html">Home</a>
-      <a href="signup.html" class="active">Sign Up</a>
-      <a href="login.html">Login</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="login.html" class="active">Login</a>
     </nav>
   </header>
 
-  <!-- Sign Up Form Container -->
+  <!-- Login Form Container -->
   <div class="container">
-    <h1>Create an Account</h1>
-<form id="signupForm" method="post" action="signup.php">
-
-      <label for="surname">Surname</label>
-      <input type="text" id="surname" name="surname" placeholder="Enter your surname" required />
-
-      <label for="othernames">Other Names</label>
-      <input type="text" id="othernames" name="othernames" placeholder="Enter your other names" required />
-
-      <label for="country">Country</label>
-      <select id="country" name="country" required>
-        <option value="">Select your country</option>
-        <option value="Nigeria">Nigeria</option>
-        <option value="Ghana">Ghana</option>
-        <option value="Kenya">Kenya</option>
-        <option value="South Africa">South Africa</option>
-        <option value="United States">United States</option>
-      </select>
-
-      <label for="phone">Phone Number</label>
-      <div class="phone-container">
-        <select id="countryCode" name="countryCode" required>
-          <option value="+234">+234</option>
-          <option value="+233">+233</option>
-          <option value="+254">+254</option>
-          <option value="+27">+27</option>
-          <option value="+1">+1</option>
-        </select>
-        <input type="tel" id="phone" name="phone" placeholder="8012345678" required />
-      </div>
-
-      <label for="referral">Referral Code (Optional)</label>
-      <input type="text" id="referral" name="referral" placeholder="Enter referral code" />
+    <h1>Login</h1>
+    <form id="loginForm">
 
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+      </div>
 
-      <label for="confirmPassword">Confirm Password</label>
-      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required />
+      <p class="error" id="errorMsg"></p>
 
-      <p id="errorMsg"></p>
-
-      <button type="submit">Sign Up</button>
+      <button type="submit">Login</button>
     </form>
 
     <div class="form-footer">
-      <p>Already have an account? <a href="login.html">Login here</a></p>
+      <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
     </div>
   </div>
 
@@ -295,37 +211,40 @@
 
   <!-- JS Validation -->
   <script>
-    const form = document.getElementById('signupForm');
-const errorMsg = document.getElementById('errorMsg');
+    function togglePassword() {
+      const password = document.getElementById('password');
+      password.type = password.type === "password" ? "text" : "password";
+    }
 
-form.addEventListener('submit', function (event) {
-  event.preventDefault();
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
 
-  const password = document.getElementById('password').value;
-  const confirmPassword = document.getElementById('confirmPassword').value;
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-  if (password !== confirmPassword) {
-    errorMsg.style.color = "red";
-    errorMsg.textContent = "Passwords do not match!";
-    return;
-  }
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-  if (password.length < 6) {
-    errorMsg.style.color = "red";
-    errorMsg.textContent = "Password must be at least 6 characters!";
-    return;
-  }
+      if (!email || !password) {
+        errorMsg.textContent = "All fields are required!";
+        return;
+      }
 
-  errorMsg.style.color = "lightgreen";
-  errorMsg.textContent = "Sign up successful! Redirecting...";
+      if (password.length < 6) {
+        errorMsg.textContent = "Password must be at least 6 characters!";
+        return;
+      }
 
-  console.log("Form submitted successfully");
+      errorMsg.style.color = "lightgreen";
+      errorMsg.textContent = "Login successful! Redirecting...";
 
-  // Simulate form submission delay and redirect
-  setTimeout(() => {
-    window.location.href = "login.html"; // Redirect to login page
-  }, 2000); // 2 second delay before redirect (optional)
-});
+      console.log("Form submitted successfully");
+
+      // Simulate form submission delay and redirect
+      setTimeout(() => {
+        window.location.href = "dashboard.html"; // Redirect to dashboard
+      }, 2000); // 2-second delay before redirect (optional)
+    });
   </script>
 
 </body>
