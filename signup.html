@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,17 +40,19 @@
       color: #fff;
       text-decoration: none;
       font-size: 1rem;
+      transition: color 0.3s;
       padding: 0.5rem 1rem;
       border-radius: 4px;
-      transition: background-color 0.3s ease;
     }
 
     nav a:hover {
       background-color: #333;
+      color: #ffffff;
     }
 
     nav a.active {
       background-color: #C70004;
+      color: #ffffff;
     }
 
     .container {
@@ -63,33 +66,46 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    h1, #greetingMessage {
+    h1 {
       text-align: center;
+      margin-bottom: 1.5rem;
       color: #ffffff;
+      font-size: 2rem;
     }
 
     label {
       display: block;
       margin-bottom: 0.5rem;
+      color: #f9f9f9;
       font-weight: bold;
     }
 
-    input, select {
+    input,
+    select {
       width: 100%;
       padding: 0.75rem;
       margin-bottom: 1.5rem;
       background-color: #333;
       border: 1px solid #555;
       border-radius: 4px;
+      box-sizing: border-box;
       color: #f9f9f9;
-      transition: box-shadow 0.3s ease;
+      transition: all 0.3s ease;
     }
 
-    input:focus, select:focus {
+    input:focus,
+    select:focus {
       border-color: #ffffff;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
       outline: none;
@@ -98,6 +114,29 @@
     .phone-container {
       display: flex;
       gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phone-container select {
+      width: 35%;
+      padding: 0.75rem;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 4px;
+      color: #f9f9f9;
+    }
+
+    .phone-container input[type="tel"] {
+      width: 65%;
+      padding: 0.75rem;
+      background-color: #333;
+      border: 1px solid #555;
+      border-radius: 4px;
+      color: #f9f9f9;
+    }
+
+    input::placeholder {
+      color: #aaa;
     }
 
     button[type="submit"] {
@@ -113,38 +152,76 @@
     }
 
     button[type="submit"]:hover {
-      background-color: #ff4d4d;
-      transform: scale(1.08);
+      background-color: #ccc;
+      transform: scale(1.05);
     }
 
-    #errorMsg {
-      color: red;
+    .form-footer {
       text-align: center;
+      margin-top: 1.5rem;
       font-size: 0.9rem;
     }
 
-    #successMsg {
-      color: lightgreen;
-      text-align: center;
-      font-size: 1rem;
-      animation: popUp 0.5s ease-in-out;
+    .form-footer a {
+      color: #ffffff;
+      text-decoration: none;
     }
 
-    @keyframes popUp {
-      from { transform: scale(0.8); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    #errorMsg {
+      color: #ffffff;
+      text-align: center;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 500px) {
-      .container { margin: 3rem 1rem; }
-      .phone-container { flex-direction: column; }
-      .phone-container select, .phone-container input { width: 100%; }
+      .container {
+        margin: 3rem 1rem;
+      }
+
+      .phone-container {
+        flex-direction: column;
+      }
+
+      .phone-container select,
+      .phone-container input[type="tel"] {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- Header -->
   <header>
     <div class="logo">
       <img src="Jaykingportfolio/images/logo.png" alt="Jayking" style="height: 30px;">
@@ -156,11 +233,11 @@
     </nav>
   </header>
 
+  <!-- Sign Up Form Container -->
   <div class="container">
-    <h2 id="greetingMessage"></h2>
     <h1>Create an Account</h1>
+<form id="signupForm" method="post" action="signup.php">
 
-    <form id="signupForm">
       <label for="surname">Surname</label>
       <input type="text" id="surname" name="surname" placeholder="Enter your surname" required />
 
@@ -172,6 +249,9 @@
         <option value="">Select your country</option>
         <option value="Nigeria">Nigeria</option>
         <option value="Ghana">Ghana</option>
+        <option value="Kenya">Kenya</option>
+        <option value="South Africa">South Africa</option>
+        <option value="United States">United States</option>
       </select>
 
       <label for="phone">Phone Number</label>
@@ -179,9 +259,15 @@
         <select id="countryCode" name="countryCode" required>
           <option value="+234">+234</option>
           <option value="+233">+233</option>
+          <option value="+254">+254</option>
+          <option value="+27">+27</option>
+          <option value="+1">+1</option>
         </select>
         <input type="tel" id="phone" name="phone" placeholder="8012345678" required />
       </div>
+
+      <label for="referral">Referral Code (Optional)</label>
+      <input type="text" id="referral" name="referral" placeholder="Enter referral code" />
 
       <label for="email">Email Address</label>
       <input type="email" id="email" name="email" placeholder="Enter your email" required />
@@ -202,50 +288,46 @@
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Jaykinggraphics. All rights reserved.</p>
+    <p>&copy; 2025 Jaykinggraphics. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
   </footer>
 
+  <!-- JS Validation -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const greetingMessage = document.getElementById("greetingMessage");
-      const hour = new Date().getHours();
-      let greeting;
+    const form = document.getElementById('signupForm');
+const errorMsg = document.getElementById('errorMsg');
 
-      if (hour < 12) {
-        greeting = "Good Morning! ☀️ Ready to create your account?";
-      } else if (hour < 18) {
-        greeting = "Good Afternoon! 🔥 Let's get you signed up!";
-      } else {
-        greeting = "Good Evening! 🌙 Time to join something awesome.";
-      }
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
 
-      greetingMessage.textContent = greeting;
-    });
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
 
-    const form = document.getElementById("signupForm");
-    const errorMsg = document.getElementById("errorMsg");
+  if (password !== confirmPassword) {
+    errorMsg.style.color = "red";
+    errorMsg.textContent = "Passwords do not match!";
+    return;
+  }
 
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-      const password = document.getElementById("password").value;
-      const confirmPassword = document.getElementById("confirmPassword").value;
-      
-      if (password !== confirmPassword) {
-        errorMsg.textContent = "Oops! Passwords do not match. 🚨";
-        return;
-      }
+  if (password.length < 6) {
+    errorMsg.style.color = "red";
+    errorMsg.textContent = "Password must be at least 6 characters!";
+    return;
+  }
 
-      if (password.length < 6) {
-        errorMsg.textContent = "Password must be at least 6 characters! 🔒";
-        return;
-      }
+  errorMsg.style.color = "lightgreen";
+  errorMsg.textContent = "Sign up successful! Redirecting...";
 
-      errorMsg.textContent = "";
-      alert("🎉 Account created successfully! Redirecting...");
-      setTimeout(() => window.location.href = "login.html", 2000);
-    });
+  console.log("Form submitted successfully");
+
+  // Simulate form submission delay and redirect
+  setTimeout(() => {
+    window.location.href = "login.html"; // Redirect to login page
+  }, 2000); // 2 second delay before redirect (optional)
+});
   </script>
 
 </body>
+
 </html>
